@@ -10,8 +10,8 @@
                     <textarea class="form-control" cols="30" rows="2"  placeholder="Descripcion de la foto" #description required></textarea>
                 </div>
                 <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
-                <img [src]="photoSelected||'../../../assets/no-image.png'" alt="No imagen" class="img-fluid">
-              (click)="photoInput.click()"
+                <img [src]="photoSelected||'../../../assets/no-image.png'" alt="No imagen" class="img-fluid"  (click)="photoInput.click()">
+
                 <div class="d-grid gap-2">
                     <button class="btn btn-primary btn-block mt-4">
                         Guardar Imagen

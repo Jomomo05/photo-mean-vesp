@@ -19,4 +19,8 @@ constructor(private http:HttpClient) {}
     fd.append('image', photo);
     return this.http.post(this.URI, fd);
   }
+
+  getPhotos(){
+    return this.http.get<Photo[]>(this.URI);
+  }
 }
