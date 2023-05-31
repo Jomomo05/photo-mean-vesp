@@ -8,7 +8,6 @@ import { PhotoFormComponent } from './components/photo-form/photo-form.component
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { PhotoListComponent } from './components/photo-list/photo-list.component';
 import { PhotoPreviewComponent } from './components/photo-preview/photo-preview.component';
-
 @NgModule({
   declarations: [
     AppComponent,
