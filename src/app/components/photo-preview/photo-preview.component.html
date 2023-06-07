@@ -1,1 +1,33 @@
-<p>photo-preview works!</p>
+<div class="row" *ngIf="!photo"; else contenido>
+ <h1>Cargando foto....} </h1>
+
+
+</div>
+<ng-template #contenido>
+  <div class="row">
+    <div class="col-md-7">
+      <div class="card"><img [src]="'http://localhost:3500/'+photo.imagePath" class="img-fluid">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <form class="card-body" (submit)="updatePhoto(title,description)">
+          <div class="form-group">
+            <input type="text" class="form-control" #title placeholder="Titulo de la foto" [value]="photo.title">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" cols="10" rows="2" [value]="photo.description" placeholder="Descripcion de la foto" #description></textarea>
+          </div>
+          <div class="d-grip gap-2 mt-4">
+            <button class="btn btn-primary btn-block">
+              Actualizar foto
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-danger btn-block mt-4" (click)="deletePhoto(photo._id)">
+    eliminar foto
+  </button>
+</ng-template>

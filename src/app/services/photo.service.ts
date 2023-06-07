@@ -6,7 +6,7 @@ import {Photo} from '../interfaces/Photo';
   providedIn: 'root'
 })
 export class PhotoService {
-  URI = 'http://localhost:3500/api/photos';
+  URI = 'http://localhost:3500/api/photos/';
 
 constructor(private http:HttpClient) {}
   createPhoto(title:string, description:string, photo:File){
@@ -22,5 +22,17 @@ constructor(private http:HttpClient) {}
 
   getPhotos(){
     return this.http.get<Photo[]>(this.URI);
+  }
+
+  getPhoto<Photo>(id:string){
+    return this.http.get<Photo>(this.URI+id);
+  }
+
+  deletePhoto(id:string){
+    return this.http.delete(this.URI+id);
+  }
+
+  updatePhoto(id:string, title:string, description:string ){
+    return this.http.put(this.URI+id, {title, description});
   }
 }
